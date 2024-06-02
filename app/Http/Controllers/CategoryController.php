@@ -9,7 +9,8 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        return view('categories.index');
+        $categories = Category::all();
+        return view('categories.index', compact('categories'));
     }
 
     public function create()
@@ -25,6 +26,6 @@ class CategoryController extends Controller
         ]);
 
         Category::create($data);
-        dd('Category created successfully!');
+        return redirect()->route('categories.index');
     }
 }

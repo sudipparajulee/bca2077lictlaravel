@@ -17,15 +17,16 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($categories as $category)
                 <tr class="text-center">
-                    <td class="border p-3">1</td>
-                    <td class="border p-3">Category 1</td>
+                    <td class="border p-3">{{$category->priority}}</td>
+                    <td class="border p-3">{{$category->name}}</td>
                     <td class="border p-3">
                         <a href="" class="bg-blue-500 text-white p-2 rounded-lg">Edit</a>
                         <a href="" class="bg-red-500 text-white p-2 rounded-lg">Delete</a>
                     </td>
                 </tr>
-
+                @endforeach
             </tbody>
         </table>
     </div>

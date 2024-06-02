@@ -7,11 +7,21 @@
         <form action="{{route('categories.store')}}" method="POST">
             @csrf
             <div class="mb-4">
-                <input type="text" class="border p-3 w-full rounded-lg" name="name" placeholder="Category Name">
+                <input type="text" class="border p-3 w-full rounded-lg" name="name" placeholder="Category Name" value="{{old('name')}}">
+                @error('name')
+                    <div class="text-red-500 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
 
             <div class="mb-4">
-                <input type="text" class="border p-3 w-full rounded-lg" name="priority" placeholder="Priority">
+                <input type="text" class="border p-3 w-full rounded-lg" name="priority" placeholder="Priority" value="{{old('priority')}}">
+                @error('priority')
+                    <div class="text-red-500 mt-2 text-sm">
+                        {{$message}}
+                    </div>
+                @enderror
             </div>
 
             <div class="flex justify-center gap-5">
