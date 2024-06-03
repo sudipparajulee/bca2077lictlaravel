@@ -22,7 +22,7 @@
                     <td class="border p-3">{{$category->priority}}</td>
                     <td class="border p-3">{{$category->name}}</td>
                     <td class="border p-3">
-                        <a href="" class="bg-blue-500 text-white p-2 rounded-lg">Edit</a>
+                        <a href="{{route('categories.edit',$category->id)}}" class="bg-blue-500 text-white p-2 rounded-lg">Edit</a>
                         <a href="" class="bg-red-500 text-white p-2 rounded-lg">Delete</a>
                     </td>
                 </tr>
