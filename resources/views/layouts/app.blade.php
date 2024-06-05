@@ -15,6 +15,16 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
+        <div class="fixed top-4 right-4 rounded-lg shadow-md bg-blue-600 text-white px-5 py-3" id="message">
+            <p>Category Created Successfully</p>
+        </div>
+        <script>
+            setTimeout(() => {
+                document.getElementById('message').style.display = 'none';
+            }, 2000);
+        </script>
+
+
         <div class="flex">
             <div class="w-56 h-screen bg-gray-100 shadow">
                 <img src="https://bitmapitsolution.com/images/logo/logo.png" alt="" class="p-2 m-2 w-10/12 mx-auto mt-5 bg-white rounded-lg shadow-lg ">

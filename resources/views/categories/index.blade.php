@@ -23,7 +23,7 @@
                     <td class="border p-3">{{$category->name}}</td>
                     <td class="border p-3">
                         <a href="{{route('categories.edit',$category->id)}}" class="bg-blue-500 text-white p-2 rounded-lg">Edit</a>
-                        <a href="" class="bg-red-500 text-white p-2 rounded-lg">Delete</a>
+                        <a href="{{route('categories.destroy',$category->id)}}" class="bg-red-500 text-white p-2 rounded-lg" onclick="return confirm('Are you sure to Delete?')">Delete</a>
                     </td>
                 </tr>
                 @endforeach
