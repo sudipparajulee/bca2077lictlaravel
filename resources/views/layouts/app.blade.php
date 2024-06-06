@@ -15,15 +15,16 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
+        @if(Session::has('success'))
         <div class="fixed top-4 right-4 rounded-lg shadow-md bg-blue-600 text-white px-5 py-3" id="message">
-            <p>Category Created Successfully</p>
+            <p>{{session('success')}}</p>
         </div>
         <script>
             setTimeout(() => {
                 document.getElementById('message').style.display = 'none';
             }, 2000);
         </script>
-
+        @endif
 
         <div class="flex">
             <div class="w-56 h-screen bg-gray-100 shadow">
