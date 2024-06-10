@@ -4,13 +4,13 @@
     <hr class="h-1 bg-amber-600">
 
     <div class="mt-10">
-        <form action="">
+        <form action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="mb-5">
                 <select name="category_id" id="" class="w-full p-3 border border-gray-300 rounded-lg">
-                    <option value="">Select Category</option>
-                    <option value="">Category 1</option>
-                    <option value="">Category 2</option>
-                    <option value="">Category 3</option>
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="mb-5">
