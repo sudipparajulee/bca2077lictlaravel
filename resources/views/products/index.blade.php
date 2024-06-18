@@ -23,12 +23,14 @@
             <tbody>
                 @foreach($products as $product)
                 <tr class="text-center">
-                    <td class="border p-3">{{$product->photopath}}</td>
+                    <td class="border p-3">
+                        <img src="{{asset('images/products/'.$product->photopath)}}" class="w-24" alt="">
+                    </td>
                     <td class="border p-3">{{$product->name}}</td>
                     <td class="border p-3">{{$product->description}}</td>
                     <td class="border p-3">{{$product->price}}</td>
                     <td class="border p-3">{{$product->stock}}</td>
-                    <td class="border p-3">{{$product->category_id}}</td>
+                    <td class="border p-3">{{$product->category->name}}</td>
                     <td class="border p-3">
                         <a href="{{route('products.edit',$product->id)}}" class="bg-blue-500 text-white p-2 rounded-lg">Edit</a>
                         <a href="{{route('products.destroy',$product->id)}}" class="bg-red-500 text-white p-2 rounded-lg" onclick="return confirm('Are you sure to Delete?')">Delete</a>
