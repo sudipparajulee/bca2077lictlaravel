@@ -10,7 +10,7 @@
         </div>
         <div class="bg-red-500 p-4 shadow-md rounded-lg">
             <h3 class="font-bold text-2xl text-white">Total Products</h3>
-            <p class="text-4xl text-white font-bold">200</p>
+            <p class="text-4xl text-white font-bold">{{$products}}</p>
         </div>
         <div class="bg-green-500 p-4 shadow-md rounded-lg">
             <h3 class="font-bold text-2xl text-white">Total Orders</h3>
@@ -18,7 +18,7 @@
         </div>
         <div class="bg-red-500 p-4 shadow-md rounded-lg">
             <h3 class="font-bold text-2xl text-white">Total Categories</h3>
-            <p class="text-4xl text-white font-bold">200</p>
+            <p class="text-4xl text-white font-bold">{{$categories}}</p>
         </div>
         <div class="bg-green-500 p-4 shadow-md rounded-lg">
             <h3 class="font-bold text-2xl text-white">Pending Orders</h3>
