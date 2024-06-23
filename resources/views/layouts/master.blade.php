@@ -12,8 +12,10 @@
         <h2 class="font-bold text-3xl">DARAZ</h2>
         <div class="flex gap-10">
             <a href="{{route('home')}}">Home</a>
-            <a href="/about">About</a>
-            <a href="/contact">Contact</a>
+            @php $categories = \App\Models\Category::orderBy('priority')->get(); @endphp
+            @foreach($categories as $category)
+            <a href="">{{$category->name}}</a>
+            @endforeach
             <a href="/login">Login</a>
         </div>
     </nav>
