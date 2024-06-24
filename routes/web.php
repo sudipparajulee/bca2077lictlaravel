@@ -13,6 +13,8 @@ Route::get('/about', [PagesController::class, 'about'])->name('about');
 
 Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 
+Route::get('/categoryproducts/{catid}', [PagesController::class, 'categoryproducts'])->name('categoryproducts');
+
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');

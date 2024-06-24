@@ -14,7 +14,7 @@
             <a href="{{route('home')}}">Home</a>
             @php $categories = \App\Models\Category::orderBy('priority')->get(); @endphp
             @foreach($categories as $category)
-            <a href="">{{$category->name}}</a>
+            <a href="{{route('categoryproducts',$category->id)}}">{{$category->name}}</a>
             @endforeach
             <a href="/login">Login</a>
         </div>

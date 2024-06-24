@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -21,5 +22,12 @@ class PagesController extends Controller
     public function contact()
     {
         return view('contact');
+    }
+
+    public function categoryproducts($catid)
+    {
+        $category = Category::find($catid);
+        $products = Product::where('category_id', $catid)->paginate(3);
+        return view('categoryproducts', compact('products', 'category'));
     }
 }
