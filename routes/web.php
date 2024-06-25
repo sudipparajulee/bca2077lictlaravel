@@ -15,6 +15,9 @@ Route::get('/contact', [PagesController::class, 'contact'])->name('contact');
 
 Route::get('/categoryproducts/{catid}', [PagesController::class, 'categoryproducts'])->name('categoryproducts');
 
+Route::get('/viewproduct/{id}', [PagesController::class, 'viewproduct'])->name('viewproduct');
+
+Route::middleware('auth')->group(function () {
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
@@ -31,6 +34,7 @@ Route::post('/products/store', [ProductController::class, 'store'])->name('produ
 Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::post('/products/{id}/update', [ProductController::class, 'update'])->name('products.update');
 Route::get('/products/{id}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
