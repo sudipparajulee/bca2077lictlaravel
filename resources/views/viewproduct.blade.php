@@ -16,4 +16,21 @@
             <p class="text-sm font-thin mt-4">Terms and Conditions Apply</p>
         </div>
     </div>
+
+    <div class="my-10 px-24">
+        <h2 class="font-bold text-4xl border-b-4">Related Products</h2>
+        <div class="grid grid-cols-4 gap-10 mt-5">
+            @foreach($relatedproducts as $product)
+                <a href="{{route('viewproduct',$product->id)}}">
+                    <div class="border rounded-lg shadow-lg">
+                        <img src="{{asset('images/products/'.$product->photopath)}}" alt="product" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="p-4">
+                            <h1 class="text-xl font-bold">{{$product->name}}</h1>
+                            <p class="text-sm font-thin mt-4">Rs. {{$product->price}}</p>
+                        </div>
+                    </div>
+                </a>
+            @endforeach
+        </div>
+    </div>
 @endsection
