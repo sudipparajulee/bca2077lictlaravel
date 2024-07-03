@@ -8,7 +8,13 @@
             <h1 class="text-4xl font-bold">{{$product->name}}</h1>
             <p class="text-xl font-thin mt-4">Rs. {{$product->price}}</p>
             <p class="text-xl font-thin mt-4">{{$product->description}}</p>
-            <button class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4">Add to Cart</button>
+            <form action="{{route('cart.store')}}" method="POST">
+                @csrf
+                <input type="number" class="w-20 h-10 border rounded-lg mt-4" value="1" name="quantity" min="1" max="{{$product->stock}}">
+                <div class="text-red-600 text-sm">In Stock: {{$product->stock}}</div>
+                <input type="hidden" name="product_id" value="{{$product->id}}">
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4">Add to Cart</button>
+            </form>
         </div>
         <div>
             <p class="text-sm font-thin mt-4">Free Delivery</p>
