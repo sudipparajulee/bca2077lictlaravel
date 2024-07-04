@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
 <body>
     <nav class="bg-amber-600 p-2 flex text-white justify-between items-center px-24">
@@ -19,9 +21,10 @@
 
             @auth
             <a href="">Hi, {{auth()->user()->name}}</a>
+            <a href="{{route('mycart')}}"><i class="ri-shopping-cart-2-line"></i></a>
             <form action="{{route('logout')}}" method="post" class="inline">
                 @csrf
-                <button type="submit">Logout</button>
+                <button type="submit"><i class="ri-logout-box-r-line"></i></button>
             </form>
             @else
             <a href="/login">Login</a>

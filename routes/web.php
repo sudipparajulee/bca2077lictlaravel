@@ -20,6 +20,7 @@ Route::get('/viewproduct/{id}', [PagesController::class, 'viewproduct'])->name('
 
 Route::middleware('auth')->group(function(){
     Route::post('/cart/store', [CartController::class, 'store'])->name('cart.store');
+    Route::get('/mycart', [CartController::class, 'mycart'])->name('mycart');
 
 });
 

@@ -21,4 +21,10 @@ class CartController extends Controller
         Cart::create($data);
         return redirect()->back()->with('success', 'Product added to cart successfully');
     }
+
+    public function mycart()
+    {
+        $carts = Cart::where('user_id', auth()->id())->get();
+        return view('cart', compact('carts'));
+    }
 }
