@@ -3,6 +3,7 @@
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -21,6 +22,8 @@ Route::get('/viewproduct/{id}', [PagesController::class, 'viewproduct'])->name('
 Route::middleware('auth')->group(function(){
     Route::post('/cart/store', [CartController::class, 'store'])->name('cart.store');
     Route::get('/mycart', [CartController::class, 'mycart'])->name('mycart');
+
+    Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
 
 });
 

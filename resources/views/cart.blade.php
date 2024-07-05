@@ -9,7 +9,11 @@
                 <p class="text-lg font-thin">Rs. {{$cart->product->price}}</p>
                 <p class="text-lg font-thin">Quantity: {{$cart->quantity}}</p>
                 <div class="mt-5 flex justify-end gap-5">
-                    <a href="" class="bg-blue-600 text-white px-3 py-2 rounded-lg">Order Now</a>
+                    <form action="{{route('order.store')}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="cart_id" value="{{$cart->id}}">
+                        <button type="submit" class="bg-blue-600 text-white px-3 py-2 rounded-lg">Order Now</button>
+                    </form>
                     <a href="" class="bg-red-600 text-white px-3 py-2 rounded-lg">Remove</a>
                 </div>
             </div>

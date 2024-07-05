@@ -10,6 +10,16 @@
     href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
 </head>
 <body>
+    @if(Session::has('success'))
+        <div class="fixed top-4 right-4 rounded-lg shadow-md bg-blue-600 text-white px-5 py-3" id="message">
+            <p>{{session('success')}}</p>
+        </div>
+        <script>
+            setTimeout(() => {
+                document.getElementById('message').style.display = 'none';
+            }, 2000);
+        </script>
+        @endif
     <nav class="bg-amber-600 p-2 flex text-white justify-between items-center px-24">
         <h2 class="font-bold text-3xl">DARAZ</h2>
         <div class="flex gap-10">
