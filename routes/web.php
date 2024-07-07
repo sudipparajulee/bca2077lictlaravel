@@ -25,6 +25,8 @@ Route::middleware('auth')->group(function(){
 
     Route::post('/order/store', [OrderController::class, 'store'])->name('order.store');
 
+    Route::get('/myprofile', [PagesController::class, 'myprofile'])->name('myprofile');
+
 });
 
 Route::middleware(['auth','isadmin'])->group(function () {

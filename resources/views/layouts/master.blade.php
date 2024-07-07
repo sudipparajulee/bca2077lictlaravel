@@ -30,7 +30,7 @@
             @endforeach
 
             @auth
-            <a href="">Hi, {{auth()->user()->name}}</a>
+            <a href="{{route('myprofile')}}">Hi, {{auth()->user()->name}}</a>
             <a href="{{route('mycart')}}"><i class="ri-shopping-cart-2-line"></i></a>
             <form action="{{route('logout')}}" method="post" class="inline">
                 @csrf
