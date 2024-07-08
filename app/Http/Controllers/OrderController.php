@@ -24,4 +24,18 @@ class OrderController extends Controller
         $cart->delete();
         return back()->with('success', 'Order placed successfully');
     }
+
+    public function index()
+    {
+        $orders = Order::all();
+        return view('orders.index', compact('orders'));
+    }
+
+    public function status($id, $status)
+    {
+        $order = Order::find($id);
+        $order->status = $status;
+        $order->save();
+        return back()->with('success', 'Order status updated successfully');
+    }
 }
