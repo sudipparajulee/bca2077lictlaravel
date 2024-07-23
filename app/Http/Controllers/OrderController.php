@@ -21,9 +21,23 @@ class OrderController extends Controller
         $data['price'] = $cart->product->price;
         $data['status'] = 'Pending';
         $data['order_date'] = date('Y-m-d');
-        Order::create($data);
+        $order = Order::create($data);
         $cart->delete();
-        return back()->with('success', 'Order placed successfully');
+        // return back()->with('success', 'Order placed successfully');
+        try{
+            $product_code = 'EPAYTEST';
+            $amount = $data['price'];
+            $tax_amount = 0;
+            $total_amount = $amount + $tax_amount;
+            $success_url = "/";
+            $cancel_url = "/";
+            $transaction_uuid = $order->id.'-'.time();
+            $signed_field_names = 'total_amount,transaction_uuid,product_code';
+            $secret_key = '8gBm/:&EnhH.1/q';
+        }
+        catch(\Exception $e){
+            return back()->with('error', 'Error placing order');
+        }
     }
 
     public function index()
