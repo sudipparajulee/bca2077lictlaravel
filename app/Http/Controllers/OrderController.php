@@ -26,7 +26,7 @@ class OrderController extends Controller
         // return back()->with('success', 'Order placed successfully');
         try{
             $product_code = 'EPAYTEST';
-            $amount = 44;
+            $amount = $order->price;
             $tax_amount = 0;
             $total_amount = $amount + $tax_amount;
             $success_url = route('home');
