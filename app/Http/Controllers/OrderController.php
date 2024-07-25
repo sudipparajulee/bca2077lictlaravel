@@ -23,6 +23,12 @@ class OrderController extends Controller
         $data['order_date'] = date('Y-m-d');
         $order = Order::create($data);
         $cart->delete();
+        $maildata = [
+            'name' => $order->user->name,
+        ];
+        Mail::send('emails.orderplaced', $maildata, function ($message) use ($order) {
+            $message->to($order->user->email, $order->user->name)->subject('Order Placed Successfully');
+        });
         // return back()->with('success', 'Order placed successfully');
         try{
             $product_code = 'EPAYTEST';
